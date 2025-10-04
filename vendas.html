@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./css/vendas.css">
+  <title>Sistema de Vendas</title>
+  <style>
+    .botao-venda {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin-top: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .botao-venda:hover {
+      background-color: #1976D2;
+    }
+
+    .produto {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+    }
+
+    .produto label {
+      display: block;
+      margin-top: 8px;
+      font-weight: bold;
+    }
+
+    .produto input {
+      width: 100%;
+      padding: 6px;
+      margin-top: 4px;
+      margin-bottom: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Sistema de Vendas up</div>
+    <nav class="menu">
+      <a href="./estoque.html">Estoque</a>
+      <a href="./contabilidade.html">Contabilidade</a>
+      <a href="./vendas.html">Vendas</a>
+      <a href="./verificarestoque.html">Verificar Estoque</a>
+    </nav>
+    <img src="./assets/Imagem do WhatsApp de 2025-09-10 à(s) 18.53.19_f49c522b.jpg" alt="Foto de Perfil" class="foto-perfil">
+  </header>
+
+  <section class="produtos" id="lista-produtos">
+    <!-- Produtos serão inseridos aqui via JavaScript -->
+  </section>
+
+  <script src="./js/venda.js"></script>
+</body>
+</html>

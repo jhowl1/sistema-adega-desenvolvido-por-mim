@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aba Contabilidade</title>
+  <link rel="stylesheet" href="./css/contabilidade.css">
+  <style>
+    .botao-editar {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 5px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .botao-remover {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      margin-left: 5px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .botao-editar:hover {
+      background-color: #45a049;
+    }
+
+    .botao-remover:hover {
+      background-color: #d32f2f;
+    }
+
+    .fechamento-dia {
+      margin-top: 30px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+    }
+
+    .fechamento-dia h3 {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Sistema de Vendas up</div>
+    <nav class="menu">
+      <a href="./estoque.html">Estoque</a>
+      <a href="./contabilidade.html">Contabilidade</a>
+      <a href="./vendas.html">Vendas</a>
+      <a href="./verificarestoque.html">Verificar Estoque</a>
+    </nav>
+    <img src="./assets/Imagem do WhatsApp de 2025-09-10 à(s) 18.53.19_f49c522b.jpg" alt="Foto de Perfil" class="foto-perfil">
+  </header>
+
+  <div class="contabilidade-container">
+    <h2>Contabilidade</h2>
+
+    <form id="form-contabilidade">
+      <label for="gasto-dia">Gasto do Dia (R$)</label>
+      <input type="number" id="gasto-dia" name="gasto-dia" placeholder="Ex: 250.00" step="0.01">
+      <button type="submit" class="botao-salvar">Registrar Gasto</button>
+    </form>
+
+    <div class="gastos-dia">
+      <p><strong>Gastos do Dia:</strong> R$ <span id="total-gastos">0.00</span></p>
+      <p><strong>Gastos no Mês:</strong> R$ <span id="gasto-mes">0.00</span></p>
+      <p><strong>Gastos no Ano:</strong> R$ <span id="gasto-ano">0.00</span></p>
+      <ul id="lista-gastos"></ul>
+    </div>
+
+    <div class="resumo">
+      <p><strong>Ganhos no Mês:</strong> R$ <span id="ganho-mes">0.00</span></p>
+      <p><strong>Ganhos no Ano:</strong> R$ <span id="ganho-ano">0.00</span></p>
+      <p><strong>Total Geral:</strong> R$ <span id="ganho-total">0.00</span></p>
+    </div>
+
+    <div class="fechamento-dia">
+      <h3>Fechamento do Dia</h3>
+      <p><strong>Ganhos do Dia:</strong> R$ <span id="ganho-dia">0.00</span></p>
+      <p><strong>Gastos do Dia:</strong> R$ <span id="gasto-dia-total">0.00</span></p>
+      <p><strong>Lucro Líquido:</strong> R$ <span id="lucro-dia">0.00</span></p>
+    </div>
+
+    <div class="grafico-estatico">
+      [ Gráfico de Ganhos Mensais Aqui ]
+    </div>
+  </div>
+
+  <script src="./js/contabilidade.js"></script>
+</body>
+</html>
