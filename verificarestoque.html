@@ -2,9 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./css/verificarestoque.css">
-  <link rel="stylesheet" href="./css/footer.css">
   <title>Verificar Estoque</title>
+  <link rel="stylesheet" href="./css/verificarestoque.css">
 </head>
 <body>
 
@@ -21,21 +20,48 @@
 
   <div class="estoque-container">
     <h2>Produtos em Estoque</h2>
+
+    <!-- Campo de busca -->
+    <input type="text" id="busca" placeholder="🔍 Buscar produto...">
+
+    <!-- Tabela de estoque -->
     <table>
       <thead>
         <tr>
           <th>Produto</th>
           <th>Quantidade</th>
           <th>Valor Unitário (R$)</th>
+          <th>Doses Disponíveis</th>
+          <th>Status</th>
           <th>Ações</th>
         </tr>
       </thead>
-      <tbody id="tabela-estoque">
-        <!-- Produtos serão inseridos aqui via JavaScript -->
-      </tbody>
+      <tbody id="tabela-estoque"></tbody>
     </table>
+
+    <!-- Botão exportar -->
+    <button id="exportar" class="botao-editar">Exportar CSV</button>
+
+    <!-- Gráfico de estoque -->
+    <h2>Distribuição de Estoque</h2>
+    <canvas id="graficoEstoque"></canvas>
+
+    <!-- Ranking dos mais vendidos -->
+    <h2>Itens Mais Vendidos</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Quantidade Vendida</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-vendidos"></tbody>
+    </table>
+    <canvas id="graficoVendidos"></canvas>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="./js/verificar.js"></script>
 </body>
 </html>
+

@@ -1,115 +1,157 @@
+/* Reset */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f9f9f9;
+  color: #000;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #FFD700;
-    }
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  color: #FFD700;
+  padding: 12px 20px;
+}
+header .logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+header .menu a {
+  color: #FFD700;
+  text-decoration: none;
+  margin-right: 12px;
+  font-weight: bold;
+}
+header .menu a:hover {
+  color: #fff;
+}
+header .foto-perfil {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #FFD700;
+}
 
-    header {
-      background-color: #FFD700;
-      color: #000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-    }
+/* Container */
+.contabilidade-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 16px;
+}
 
-    .logo {
-      font-size: 1.8em;
-      font-weight: bold;
-    }
+/* Boxes */
+.gastos-dia, .resumo, .fechamento-dia {
+  background: #fff;
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+.gastos-dia p, .resumo p, .fechamento-dia p {
+  margin: 6px 0;
+}
+.fechamento-dia h3 {
+  margin: 0 0 10px;
+  color: #000;
+}
 
-    .menu {
-      display: flex;
-      gap: 20px;
-    }
+/* Form */
+#form-contabilidade {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+#form-contabilidade input[type="number"] {
+  padding: 8px;
+  border: 1px solid #000;
+  border-radius: 6px;
+  width: 200px;
+}
+.botao-salvar {
+  background: #FFD700;
+  color: #000;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.botao-salvar:hover {
+  background: #000;
+  color: #FFD700;
+}
 
-    .menu a {
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
+/* Lista de gastos */
+#lista-gastos {
+  list-style: none;
+  padding: 0;
+}
+#lista-gastos li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 1px solid #000;
+  padding: 8px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+}
+.botao-editar, .botao-remover {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.botao-editar {
+  background: #FFD700;
+  color: #000;
+}
+.botao-editar:hover {
+  background: #000;
+  color: #FFD700;
+}
+.botao-remover {
+  background: #000;
+  color: #FFD700;
+}
+.botao-remover:hover {
+  background: #FFD700;
+  color: #000;
+}
 
-    .menu a:hover {
-      background-color: #000;
-      color: #FFD700;
-    }
+/* Resumo por pagamento */
+#resumo-pagamento {
+  list-style: none;
+  padding: 0;
+}
+#resumo-pagamento li {
+  background: #fff;
+  border: 1px solid #FFD700;
+  padding: 8px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+}
 
-    .foto-perfil {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #000;
-    }
-
-    .contabilidade-container {
-      max-width: 700px;
-      margin: 40px auto;
-      background-color: #111;
-      padding: 30px;
-      border-radius: 10px;
-      border: 2px solid #FFD700;
-    }
-
-    .contabilidade-container h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      color: #FFD700;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #FFD700;
-      border-radius: 5px;
-      background-color: #222;
-      color: #FFD700;
-    }
-
-    input::placeholder {
-      color: #aaa;
-    }
-
-    .botao-salvar {
-      background-color: #FFD700;
-      color: #000;
-      border: none;
-      padding: 12px 20px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      width: 100%;
-      transition: background-color 0.3s;
-    }
-
-    .botao-salvar:hover {
-      background-color: #e6c200;
-    }
-
-    .resumo {
-      margin-top: 30px;
-      color: #FFD700;
-    }
-
-    .grafico-estatico {
-      margin-top: 30px;
-      background-color: #fff;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-      color: #000;
-      font-weight: bold;
-    }
-  
+/* Tabela de vendas */
+#tabela-vendas {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+#tabela-vendas th, #tabela-vendas td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
+}
+#tabela-vendas th {
+  background: #FFD700;
+  color: #000;
+}
+#tabela-vendas tbody tr:hover {
+  background: #fffacd; /* amarelo claro no hover */
+}

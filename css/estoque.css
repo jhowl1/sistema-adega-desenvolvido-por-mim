@@ -1,100 +1,259 @@
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #FFD700;
-    }
+/* ===== Reset básico e tema ===== */
+* {
+  box-sizing: border-box;
+}
 
-    header {
-      background-color: #FFD700;
-      color: #000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 30px;
-    }
+html, body {
+  height: 100%;
+}
 
-    .logo {
-      font-size: 1.8em;
-      font-weight: bold;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #FFD700;
+}
 
-    .menu {
-      display: flex;
-      gap: 20px;
-    }
+/* ===== Header e navegação ===== */
+header {
+  background-color: #FFD700;
+  color: #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 30px;
+}
 
-    .menu a {
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      padding: 8px 12px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+}
 
-    .menu a:hover {
-      background-color: #000;
-      color: #FFD700;
-    }
+.menu {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
 
-    .foto-perfil {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #000;
-    }
+.menu a {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background-color 0.2s, color 0.2s;
+}
 
-    .estoque-container {
-      max-width: 600px;
-      margin: 40px auto;
-      background-color: #111;
-      padding: 30px;
-      border-radius: 10px;
-      border: 2px solid #FFD700;
-    }
+.menu a:hover {
+  background-color: #000;
+  color: #FFD700;
+}
 
-    .estoque-container h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      color: #FFD700;
-    }
+/* ===== Perfil e dropdown “Sair” ===== */
+.perfil-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
 
-    label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: bold;
-    }
+.foto-perfil {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #000;
+  cursor: pointer;
+}
 
-    input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 20px;
-      border: 1px solid #FFD700;
-      border-radius: 5px;
-      background-color: #222;
-      color: #FFD700;
-    }
+.menu-sair {
+  position: absolute;
+  top: 60px; /* logo abaixo da foto */
+  right: 0;
+  background-color: #111;
+  border: 1px solid #FFD700;
+  border-radius: 6px;
+  padding: 10px;
+  min-width: 120px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  display: none; /* inicia oculto, JS alterna */
+  z-index: 1000;
+}
 
-    input::placeholder {
-      color: #aaa;
-    }
+.menu-sair button {
+  width: 100%;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
 
-    .botao-salvar {
-      background-color: #FFD700;
-      color: #000;
-      border: none;
-      padding: 12px 20px;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-      width: 100%;
-      transition: background-color 0.3s;
-    }
+.menu-sair button:hover {
+  background-color: #cc0000;
+}
 
-    .botao-salvar:hover {
-      background-color: #e6c200;
-    }
-  
+/* ===== Container do estoque ===== */
+.estoque-container {
+  max-width: 960px;
+  margin: 40px auto;
+  background-color: #111;
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid #FFD700;
+}
+
+.estoque-container h2 {
+  text-align: center;
+  margin: 10px 0 25px;
+  color: #FFD700;
+}
+
+/* ===== Formulário ===== */
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 20px;
+  margin-bottom: 25px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  grid-column: span 1;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #FFD700;
+  border-radius: 5px;
+  background-color: #222;
+  color: #FFD700;
+}
+
+form input::placeholder {
+  color: #aaa;
+}
+
+form input:focus {
+  outline: none;
+  border-color: #e6c200;
+  background-color: #2a2a2a;
+}
+
+/* Campos em duas colunas: nome ocupa 2 colunas para facilitar digitação */
+#nome {
+  grid-column: span 2;
+}
+
+/* Botão salvar ocupa duas colunas e fica ao final do grid */
+.botao-salvar {
+  grid-column: span 2;
+  background-color: #FFD700;
+  color: #000;
+  border: none;
+  padding: 12px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+  transition: background-color 0.2s, transform 0.05s;
+}
+
+.botao-salvar:hover {
+  background-color: #e6c200;
+}
+
+.botao-salvar:active {
+  transform: translateY(1px);
+}
+
+/* ===== Tabela ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #111;
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  overflow: hidden; /* para bordas arredondadas no thead */
+}
+
+thead {
+  background-color: #FFD700;
+  color: #000;
+}
+
+th, td {
+  padding: 12px 10px;
+  text-align: center;
+  border-bottom: 1px solid #FFD700;
+}
+
+tbody tr:hover {
+  background-color: #1a1a1a;
+}
+
+/* Ações (remover) */
+.botao-remover {
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.05s;
+}
+
+.botao-remover:hover {
+  background-color: #cc0000;
+}
+
+.botao-remover:active {
+  transform: translateY(1px);
+}
+
+/* ===== Totalizador ===== */
+#total-estoque {
+  margin-top: 16px;
+  font-weight: bold;
+  text-align: right;
+  color: #FFD700;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 900px) {
+  form {
+    grid-template-columns: 1fr;
+  }
+  #nome,
+  .botao-salvar {
+    grid-column: span 1;
+  }
+  header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .menu {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .logo {
+    font-size: 1.4em;
+  }
+  .foto-perfil {
+    width: 44px;
+    height: 44px;
+  }
+  th, td {
+    font-size: 0.95rem;
+    padding: 10px 6px;
+  }
+}

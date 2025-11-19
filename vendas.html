@@ -4,43 +4,6 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="./css/vendas.css">
   <title>Sistema de Vendas</title>
-  <style>
-    .botao-venda {
-      background-color: #2196F3;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      margin-top: 10px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-
-    .botao-venda:hover {
-      background-color: #1976D2;
-    }
-
-    .produto {
-      border: 1px solid #ccc;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 6px;
-    }
-
-    .produto label {
-      display: block;
-      margin-top: 8px;
-      font-weight: bold;
-    }
-
-    .produto input {
-      width: 100%;
-      padding: 6px;
-      margin-top: 4px;
-      margin-bottom: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-  </style>
 </head>
 <body>
 
@@ -52,13 +15,67 @@
       <a href="./vendas.html">Vendas</a>
       <a href="./verificarestoque.html">Verificar Estoque</a>
     </nav>
-    <img src="./assets/Imagem do WhatsApp de 2025-09-10 à(s) 18.53.19_f49c522b.jpg" alt="Foto de Perfil" class="foto-perfil">
+    <img src="./assets/Imagem do WhatsApp de 2025-09-10 à(s) 18.53.19_f49c522b.jpg" alt="Foto de Perfil" class="foto-perfil" id="fotoPerfil">
   </header>
 
-  <section class="produtos" id="lista-produtos">
-    <!-- Produtos serão inseridos aqui via JavaScript -->
-  </section>
+  <div class="vendas-container">
+    <h2>Registrar Venda</h2>
+
+    <!-- Lupa de busca -->
+    <div class="busca-container">
+      <input type="text" id="busca" placeholder="🔍 Buscar produto...">
+    </div>
+
+    <!-- Lista de produtos em cards -->
+    <div id="lista-produtos" class="lista-produtos"></div>
+
+    <!-- Formulário de venda -->
+    <form id="form-venda" style="display:none;">
+      <h3 id="produto-selecionado"></h3>
+
+      <!-- Tipo de venda -->
+      <label for="tipoVenda">Tipo de venda</label>
+      <select id="tipoVenda" name="tipoVenda" required>
+        <option value="dose">Dose</option>
+        <option value="garrafa">Garrafa</option>
+      </select>
+
+      <label for="quantidade">Quantidade Vendida</label>
+      <input type="number" id="quantidade" name="quantidade" placeholder="Ex: 2" required>
+
+      <label for="precoUnitario">Preço Unitário (R$)</label>
+      <input type="number" id="precoUnitario" name="precoUnitario" step="0.01" readonly>
+
+      <label for="formaPagamento">Forma de Pagamento</label>
+      <select id="formaPagamento" name="formaPagamento" required>
+        <option value="">Selecione</option>
+        <option value="pix">PIX</option>
+        <option value="debito">Débito</option>
+        <option value="credito">Crédito</option>
+        <option value="dinheiro">Dinheiro</option>
+      </select>
+
+      <!-- Parcelas (aparece só se for crédito) -->
+      <div id="campo-parcelas" style="display:none;">
+        <label for="parcelas">Número de parcelas</label>
+        <input type="number" id="parcelas" min="1" max="12" value="1">
+      </div>
+
+      <!-- Valor recebido (aparece só se for dinheiro) -->
+      <div id="campo-valor-recebido" style="display:none;">
+        <label for="valorRecebido">Valor recebido (R$)</label>
+        <input type="number" id="valorRecebido" step="0.01">
+      </div>
+
+      <button type="button" class="botao-salvar" id="btnResumo">Ver Resumo</button>
+      <button type="submit" class="botao-salvar">Finalizar Venda</button>
+    </form>
+
+    <!-- Resumo da compra -->
+    <div id="resumo-compra"></div>
+  </div>
 
   <script src="./js/venda.js"></script>
 </body>
 </html>
+

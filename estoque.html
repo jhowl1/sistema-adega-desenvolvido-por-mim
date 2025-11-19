@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="./css/estoque.css">
-  <title>Aba Estoque</title>
- 
+  <title> Estoque</title>
 </head>
 <body>
 
@@ -16,24 +15,63 @@
       <a href="./vendas.html">Vendas</a>
       <a href="./verificarestoque.html">Verificar Estoque</a>
     </nav>
-    <img src="./assets/Imagem do WhatsApp de 2025-09-10 à(s) 18.53.19_f49c522b.jpg" alt="Foto de Perfil" class="foto-perfil">
+
+    <div class="perfil-container">
+      <img src="./assets/Imagem do WhatsApp de 2025-09-10 à(s) 18.53.19_f49c522b.jpg" alt="Foto de Perfil" class="foto-perfil" id="fotoPerfil">
+      <div class="menu-sair" id="menuSair">
+        <button onclick="sair()">Sair</button>
+      </div>
+    </div>
   </header>
 
   <div class="estoque-container">
     <h2>Cadastro de Produto</h2>
     <form>
       <label for="nome">Nome do Produto</label>
-      <input type="text" id="nome" name="nome" placeholder="Ex: Teclado Gamer">
+      <input type="text" id="nome" name="nome" placeholder="Ex: Vinho Tinto">
 
-      <label for="quantidade">Quantidade</label>
-      <input type="number" id="quantidade" name="quantidade" placeholder="Ex: 50">
+      <label for="quantidade">Quantidade (garrafas)</label>
+      <input type="number" id="quantidade" name="quantidade" placeholder="Ex: 10">
 
       <label for="valor">Valor Unitário (R$)</label>
-      <input type="number" id="valor" name="valor" step="0.01" placeholder="Ex: 129.90">
+      <input type="number" id="valor" name="valor" step="0.01" placeholder="Ex: 80.00">
+
+      <label for="valorPago">Valor Pago (R$)</label>
+      <input type="number" id="valorPago" name="valorPago" step="0.01" placeholder="Ex: 50.00">
+
+      <label for="volumeGarrafa">Volume da Garrafa (ml)</label>
+      <input type="number" id="volumeGarrafa" name="volumeGarrafa" placeholder="Ex: 750">
+
+      <label for="volumeDose">Volume da Dose (ml)</label>
+      <input type="number" id="volumeDose" name="volumeDose" placeholder="Ex: 150">
+
+      <label for="precoDose">Preço da Dose (R$)</label>
+      <input type="number" id="precoDose" name="precoDose" step="0.01" placeholder="Ex: 20.00">
 
       <button type="submit" class="botao-salvar">Salvar Produto</button>
     </form>
+
+    <h2>Produtos em Estoque</h2>
+    <table id="tabela-estoque">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Qtd Garrafas</th>
+          <th>Valor Unitário</th>
+          <th>Valor Pago</th>
+          <th>Volume Garrafa</th>
+          <th>Volume Dose</th>
+          <th>Preço Dose</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div id="total-estoque"></div>
   </div>
-<script src="./js/estoque.js"></script>
+
+  <script src="./js/estoque.js"></script>
 </body>
 </html>
+
+
